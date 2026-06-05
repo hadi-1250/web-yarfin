@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Website Resmi SKH Islam Terpadu Yarfin. Sekolah khusus tunanetra modern di bawah Yayasan Raudlatul Makfufin."
+    />
+    <title>SKH Islam Terpadu Yarfin | Sekolah Khusus Tunanetra</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ================= CSS DESAIN MODERN ================= */
+      :root {
+        --bg-utama: #ffffff;
+        --bg-terang: #f8fafc;
+        --teks-utama: #334155;
+        --warna-primer: #1e3a8a;
+        --warna-primer-terang: #3b82f6;
+        --warna-sekunder: #10b981;
+        --warna-fokus: #eab308;
+        --font-dasar: "Poppins", sans-serif;
+        --lebar-maks: 1200px;
+        --shadow-halus: 0 10px 25px rgba(0, 0, 0, 0.05);
+        --shadow-hover: 0 20px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      body.tema-kontras-tinggi {
+        --bg-utama: #000000 !important;
+        --bg-terang: #121212 !important;
+        --teks-utama: #00ff00 !important;
+        --warna-primer: #000000 !important;
+        --warna-sekunder: #ffff00 !important;
+      }
+      body.tema-kontras-tinggi * {
+        border-color: #ffff00 !important;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      body {
+        font-family: var(--font-dasar);
+        background-color: var(--bg-utama);
+        color: var(--teks-utama);
+        line-height: 1.6;
+        transition: 0.3s;
+      }
+      .container {
+        max-width: var(--lebar-maks);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Toolbar Aksesibilitas */
+      .toolbar-aksesibilitas {
+        background: #0f172a;
+        color: #fff;
+        padding: 8px 0;
+      }
+      .container-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+      }
+      .btn-tool {
+        background: #1e293b;
+        color: #fff;
+        border: 1px solid #334155;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: bold;
+      }
+      .btn-tool:hover {
+        background: #334155;
+      }
+
+      /* Header & Logo */
+      .header-utama {
+        background: var(--bg-utama);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      }
+      .header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+      }
+      .logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+      }
+      .logo-img-head {
+        height: 60px;
+        width: auto;
+      }
+      .logo-text-head h1 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--warna-primer);
+        line-height: 1.1;
+      }
+      .aksen-hijau {
+        color: var(--warna-sekunder);
+      }
+      .sub-logo {
+        font-size: 0.7rem;
+        color: #64748b;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      /* Navigasi */
+      .nav-utama ul {
+        display: flex;
+        list-style: none;
+        gap: 15px;
+      }
+      .nav-utama a {
+        color: var(--teks-utama);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: 0.3s;
+        font-size: 0.95rem;
+      }
+      .nav-utama a:hover {
+        color: var(--warna-primer-terang);
+        background: var(--bg-terang);
+      }
+      .nav-utama a.nav-ppdb {
+        background: var(--warna-sekunder);
+        color: #fff !important;
+      }
+
+      /* Hamburger */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1002;
+      }
+      .hamburger .bar {
+        width: 100%;
+        height: 3px;
+        background-color: var(--warna-primer);
+        border-radius: 10px;
+        transition: 0.4s;
+      }
+      .hamburger.open .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .hamburger.open .bar:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+
+      /* Beranda & Animasi Edukasi */
+      .hero-section {
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        color: white;
+        padding: 80px 0;
+        overflow: hidden;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .hero-text h2 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 20px;
+      }
+
+      /* CSS Animasi Edukasi Tunanetra (Sound & Touch Pulse) */
+      .animation-container {
+        position: relative;
+        width: 100%;
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .edu-pulse {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background: var(--warna-sekunder);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        box-shadow: 0 0 50px rgba(16, 185, 129, 0.5);
+      }
+      .edu-icon {
+        font-size: 4rem;
+      }
+      .wave {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border: 2px solid var(--warna-sekunder);
+        border-radius: 50%;
+        animation: pulseWave 3s infinite;
+        opacity: 0;
+      }
+      .wave2 {
+        animation-delay: 1s;
+      }
+      .wave3 {
+        animation-delay: 2s;
+      }
+      @keyframes pulseWave {
+        0% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(2.5);
+          opacity: 0;
+        }
+      }
+      .braille-dots {
+        position: absolute;
+        bottom: 40px;
+        display: flex;
+        gap: 10px;
+        animation: dotsFade 2s infinite alternate;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.6;
+      }
+      @keyframes dotsFade {
+        0% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Seksi & Kartu */
+      .seksi-halaman {
+        padding: 70px 0;
+      }
+      .bg-terang {
+        background-color: var(--bg-terang);
+      }
+      .bg-putih {
+        background-color: var(--bg-utama);
+      }
+      .judul-seksi {
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--warna-primer);
+        margin-bottom: 50px;
+      }
+      .judul-seksi::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 5px;
+        background: var(--warna-sekunder);
+        margin: 15px auto 0;
+        border-radius: 5px;
+      }
+      .kartu-efek {
+        background: var(--bg-utama);
+        border-radius: 16px;
+        box-shadow: var(--shadow-halus);
+        transition: 0.3s;
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        padding: 30px;
+      }
+      .kartu-efek:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+      }
+      
+      /* Profil Teks */
+      .teks-profil p {
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+      .teks-profil p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Visi Misi Tujuan Layout */
+      .vmt-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+      .vmt-judul {
+        font-size: 1.6rem;
+        color: var(--warna-primer);
+        border-left: 5px solid var(--warna-sekunder);
+        padding-left: 15px;
+        margin-bottom: 15px;
+      }
+      .vmt-list {
+        padding-left: 20px;
+        color: #475569;
+      }
+      .vmt-list li {
+        margin-bottom: 8px;
+      }
+
+      /* Statistik */
+      .profil-statistik {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .kartu-stat {
+        text-align: center;
+        border-bottom: 4px solid var(--warna-primer-terang);
+      }
+      .angka-stat {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--warna-primer);
+      }
+
+      /* Galeri */
+      .grid-galeri {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .item-galeri {
+        border-radius: 12px;
+        overflow: hidden;
+        height: 250px;
+        position: relative;
+        cursor: pointer;
+      }
+      .item-galeri img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+      }
+      .item-galeri:hover img {
+        transform: scale(1.1);
+      }
+
+      /* Kontak & Lokasi */
+      .kontak-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+      .peta-container {
+        border-radius: 16px;
+        overflow: hidden;
+        height: 350px;
+        box-shadow: var(--shadow-halus);
+      }
+      .peta-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .btn-primer {
+        background: var(--warna-sekunder);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        transition: 0.3s;
+        border: none;
+      }
+      .btn-primer:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+      }
+
+      @media (max-width: 992px) {
+        .hero-grid,
+        .vmt-grid,
+        .kontak-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .profil-statistik {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-galeri {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .animation-container {
+          order: -1;
+          margin-bottom: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+        .nav-utama {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 260px;
+          height: 100vh;
+          background: white;
+          z-index: 1001;
+          transition: 0.4s;
+          padding: 80px 20px;
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .nav-utama.aktif {
+          right: 0;
+        }
+        .nav-utama ul {
+          flex-direction: column;
+        }
+        .grid-galeri,
+        .profil-statistik {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar-aksesibilitas">
+      <div class="container container-toolbar">
+        <span>Mode Aksesibilitas:</span>
+        <div class="grup-tombol">
+          <button class="btn-tool" onclick="toggleKontras()">◑ Kontras</button>
+          <button class="btn-tool" onclick="toggleUkuranTeks()">A+ Teks</button>
+          <button id="btn-tts" class="btn-tool" onclick="togglePembacaTeks()">
+            🔊 Baca Suara
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <header class="header-utama">
+      <div class="container header-flex">
+        <a href="#beranda" class="logo-wrapper">
+          <img
+            src="logo_yarfin.png"
+            alt="Logo SKH IT Yarfin"
+            class="logo-img-head"
+          />
+          <div class="logo-text-head">
+            <h1>SKH-IT <span class="aksen-hijau">YARFIN</span></h1>
+            <p class="sub-logo">Tangsel - Banten</p>
+          </div>
+        </a>
+
+        <button class="hamburger" id="menu-toggle" aria-label="Buka Menu">
+          <span class="bar"></span><span class="bar"></span
+          ><span class="bar"></span>
+        </button>
+
+        <nav id="nav-menu" class="nav-utama">
+          <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#visi-misi">Visi & Misi</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="#ppdb" class="nav-ppdb">PPDB</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="beranda" class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <span
+              style="
+                background: rgba(255, 255, 255, 0.1);
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+              "
+              >PENDIDIKAN KHUSUS TUNANETRA</span
+            >
+            <h2>Membangun Kemandirian Melalui Cahaya Iman</h2>
+            <p>
+              Selamat datang di SKH Islam Terpadu Yarfin. Wahana pendidikan
+              inklusif yang memadukan intelektualitas modern dengan keteguhan
+              aqidah Islamiah.
+            </p>
+            <div style="margin-top: 30px">
+              <a href="#ppdb" class="btn-primer">Daftar Sekarang</a>
+            </div>
+          </div>
+          <div
+            class="animation-container"
+            aria-label="Animasi interaktif melambangkan gelombang suara dan sentuhan untuk edukasi tunanetra"
+          >
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="edu-pulse">
+              <span class="edu-icon">📖</span>
+            </div>
+            <div class="braille-dots">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="profil" class="seksi-halaman bg-putih">
+        <div class="container">
+          <h2 class="judul-seksi">Profil Sekolah</h2>
+          <div class="kartu-efek teks-profil">
+            <p>SKH Islam Terpadu Yarfin merupakan sekolah khusus yang berada di bawah naungan Yayasan Raudlatul Makfufin, berlokasi di Kota Tangerang Selatan, Provinsi Banten. Sekolah ini menyelenggarakan pendidikan khusus bagi peserta didik penyandang tunanetra pada jenjang SDLB, SMPLB, dan SMLB dengan status sekolah swasta dan terakreditasi B.</p>
+            <p>Sebagai lembaga pendidikan inklusif yang berlandaskan nilai-nilai Islam, SKH Islam Terpadu Yarfin berkomitmen untuk memberikan layanan pendidikan yang berkualitas, ramah, dan sesuai dengan kebutuhan peserta didik tunanetra. Proses pembelajaran dirancang untuk mengembangkan kemampuan akademik, keterampilan hidup, kemandirian, serta pembentukan karakter Islami yang kuat.</p>
+            <p>Sekolah didukung oleh tenaga pendidik yang berdedikasi, fasilitas pembelajaran yang memadai, akses internet, laboratorium, serta lingkungan belajar yang kondusif bagi perkembangan peserta didik. Selain fokus pada pendidikan akademik, sekolah juga aktif mengembangkan potensi siswa melalui berbagai kegiatan keagamaan, keterampilan, teknologi, dan pengembangan bakat.</p>
+            <p>Sejalan dengan visinya, SKH Islam Terpadu Yarfin berupaya membentuk pribadi tunanetra muslim yang cakap, cerdas, mandiri, serta mampu mengimplementasikan ajaran Islam yang terkandung dalam Al-Qur'an dan Sunnah Rasul dalam kehidupan sehari-hari, sehingga dapat berkontribusi bagi agama, bangsa, dan negara.</p>
+            <p>Dengan semangat pelayanan, kepedulian, dan pendidikan yang berkelanjutan, SKH Islam Terpadu Yarfin terus berinovasi untuk menjadi lembaga pendidikan khusus yang unggul dalam mencetak generasi tunanetra yang berprestasi, berakhlak mulia, dan siap menghadapi tantangan masa depan.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="visi-misi" class="seksi-halaman bg-terang">
+        <div class="container">
+          <h2 class="judul-seksi">Visi, Misi & Tujuan</h2>
+
+          <div class="vmt-grid">
+            <div class="kartu-efek">
+              <h3 class="vmt-judul">Visi</h3>
+              <p style="font-style: italic; font-size: 1.1rem">
+                "Membentuk pribadi tunanetra muslim yang cakap, cerdas, mandiri
+                serta mampu mengimplementasikan ajaran-ajaran islam yang
+                terkandung dalam al-qur’an dan sunnah rasul pada pembangunan
+                agama bangsa dan Negara."
+              </p>
+            </div>
+            <div class="kartu-efek">
+              <h3 class="vmt-judul">Misi</h3>
+              <ul class="vmt-list">
+                <li>Orientasi bertitik tolak pada Al-Qur’an.</li>
+                <li>Menitik beratkan pada Sunah Rasul (Hadist).</li>
+                <li>
+                  Membentuk akhlakul karimah yang berorientasi pada
+                  perikehidupan Rasulullah.
+                </li>
+                <li>
+                  Membangun kesehatan jasmani dan rohani melalui pengetahuan
+                  keolahragaan.
+                </li>
+                <li>Berorientasi pada pengembangan intelektual siswa.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="kartu-efek" style="margin-top: 30px">
+            <h3 class="vmt-judul">Tujuan Sekolah</h3>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px"
+            >
+              <div>
+                <h4
+                  style="color: var(--warna-primer-terang); margin-bottom: 10px"
+                >
+                  Tujuan Umum
+                </h4>
+                <p>
+                  Meletakkan pondasi keimanan yang pokok serta daya nalar yang
+                  inovatif kepada tunanetra muslim agar menjadi warga negara
+                  yang budiluhur.
+                </p>
+              </div>
+              <div>
+                <h4
+                  style="color: var(--warna-primer-terang); margin-bottom: 10px"
+                >
+                  Tujuan Khusus
+                </h4>
+                <ul class="vmt-list" style="font-size: 0.9rem">
+                  <li>
+                    Wahana pendidikan khusus dengan warna keagamaan spesifik.
+                  </li>
+                  <li>Konsep boarding school (asrama) yang intensif.</li>
+                  <li>Keterampilan modern berbasis teknologi komputer.</li>
+                  <li>Pembinaan aqidah Ahli Sunah Wal Jamaah.</li>
+                  <li>Lembaga modern berbasis Computer Rise.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="galeri" class="seksi-halaman bg-putih">
+        <div class="container">
+          <h2 class="judul-seksi">Galeri Kegiatan</h2>
+          <div class="grid-galeri">
+            <div class="item-galeri kartu-efek">
+              <img src="mak3.png" alt="Hari Braille Sedunia" />
+            </div>
+            <div class="item-galeri kartu-efek">
+              <img src="mak6.png" alt="Juara Catur O2SN" />
+            </div>
+            <div class="item-galeri kartu-efek">
+              <img src="mak4.png" alt="Kunjungan Perkins School" />
+            </div>
+            <div class="item-galeri kartu-efek">
+              <img src="mak1.png" alt="Sertijab Kepala Sekolah" />
+            </div>
+            <div class="item-galeri kartu-efek">
+              <img src="mak5.png" alt="Sinergi Inklusi Global" />
+            </div>
+            <div class="item-galeri kartu-efek">
+              <img src="mak2.png" alt="Staff Yayasan" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ppdb" class="seksi-halaman bg-terang">
+        <div class="container">
+          <h2 class="judul-seksi">Penerimaan Peserta Didik Baru (PPDB)</h2>
+          <div class="kartu-efek" style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h3 style="color: var(--warna-primer); margin-bottom: 15px; font-size: 1.6rem;">Mari Bergabung Bersama Kami!</h3>
+            <p style="margin-bottom: 25px;">
+              SKH Islam Terpadu Yarfin membuka pendaftaran peserta didik baru untuk jenjang <strong>SDLB, SMPLB, dan SMLB</strong> khusus tunanetra. Dapatkan layanan pendidikan yang inklusif, modern, dan berlandaskan pada nilai-nilai ajaran Islam.
+            </p>
+
+            <div style="text-align: left; background: var(--bg-terang); padding: 25px; border-radius: 12px; margin-bottom: 30px; border: 1px solid rgba(0,0,0,0.05);">
+              <h4 style="color: var(--warna-primer-terang); margin-bottom: 15px; font-size: 1.2rem;">Syarat Pendaftaran:</h4>
+              <ul class="vmt-list">
+                <li>Mengisi Formulir Pendaftaran Lengkap.</li>
+                <li>Fotokopi Kartu Keluarga (KK) dan KTP Orang Tua.</li>
+                <li>Fotokopi Akta Kelahiran Calon Peserta Didik.</li>
+                <li>Pas Foto terbaru ukuran 3x4 dan 4x6 (Masing-masing 4 lembar).</li>
+                <li>Surat Keterangan Hasil Pemeriksaan Psikolog / Dokter Spesialis Mata (Jika ada).</li>
+                <li>Fotokopi Ijazah/STTB Terakhir (Khusus pendaftar jenjang SMPLB dan SMLB).</li>
+              </ul>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.95rem; color: #64748b;">
+              Untuk informasi lebih lanjut, silakan hubungi WhatsApp panitia PPDB:<br>
+              <strong style="color: var(--warna-sekunder); font-size: 1.1rem;">+62 811-83000-72</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="kontak" class="seksi-halaman bg-putih">
+        <div class="container">
+          <h2 class="judul-seksi">Kontak Kami</h2>
+          <div class="kontak-grid">
+            <div class="kartu-efek">
+              <h3 style="margin-bottom: 20px; color: var(--warna-primer)">
+                Informasi Kantor
+              </h3>
+              <p>
+                <strong>Alamat:</strong><br />Jl. H. Jamat Gang Masjid I No.
+                10A, RT. 002 RW. 05 Kampung Jati, Kel. Buaran, Kec. Serpong,
+                Tangerang Selatan, Banten 15316
+              </p>
+              <p style="margin-top: 15px">
+                <strong>Telepon:</strong><br />(+62 21) 74635929<br />+62
+                811-83000-72 (Kantor)
+              </p>
+            </div>
+            <div class="peta-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.922485640733!2d106.6896263!3d-6.3392815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e5a6e26dc3e5%3A0x8f7d98305c2a1c0d!2sJl.%20H.%20Jamat%20Gg.%20Masjid%20I%20No.10A%2C%20Buaran%2C%20Kec.%20Serpong%2C%20Kota%20Tangerang%20Selatan%2C%20Banten%2015316!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      style="
+        background: #020617;
+        color: #94a3b8;
+        padding: 30px 0;
+        text-align: center;
+      "
+    >
+      <div class="container">
+        <p>© 2026 SKH Islam Terpadu Yarfin - Yayasan Raudlatul Makfufin</p>
+      </div>
+    </footer>
+
+    <script>
+      // Hamburger Menu & Navigation Logic
+      const toggle = document.getElementById("menu-toggle");
+      const nav = document.getElementById("nav-menu");
+      const navLinks = nav.querySelectorAll("a");
+
+      // Buka/Tutup menu saat tombol hamburger diklik
+      toggle.onclick = (e) => {
+        e.stopPropagation(); // Mencegah klik terdeteksi langsung oleh document
+        toggle.classList.toggle("open");
+        nav.classList.toggle("aktif");
+      };
+
+      // Menutup menu jika klik di luar sidebar atau hamburger
+      document.addEventListener("click", (e) => {
+        if (nav.classList.contains("aktif")) {
+          if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+            toggle.classList.remove("open");
+            nav.classList.remove("aktif");
+          }
+        }
+      });
+
+      // Otomatis menutup menu setelah salah satu link ditekan (opsional agar navigasi mulus)
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (nav.classList.contains("aktif")) {
+            toggle.classList.remove("open");
+            nav.classList.remove("aktif");
+          }
+        });
+      });
+
+      // Fitur Aksesibilitas
+      function toggleKontras() {
+        document.body.classList.toggle("tema-kontras-tinggi");
+      }
+      function toggleUkuranTeks() {
+        document.body.style.fontSize =
+          document.body.style.fontSize === "1.2rem" ? "1rem" : "1.2rem";
+      }
+
+      let ttsAktif = false;
+      function togglePembacaTeks() {
+        ttsAktif = !ttsAktif;
+        document.getElementById("btn-tts").innerText = ttsAktif
+          ? "🔊 Suara: Aktif"
+          : "🔊 Baca Suara";
+        if (ttsAktif)
+          speak("Fitur pembaca suara aktif. Arahkan kursor ke tulisan.");
+      }
+
+      function speak(text) {
+        if (!ttsAktif) return;
+        window.speechSynthesis.cancel();
+        let utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "id-ID";
+        window.speechSynthesis.speak(utterance);
+      }
+
+      document.addEventListener("mouseover", (e) => {
+        if (
+          ttsAktif &&
+          ["H1", "H2", "H3", "P", "A", "LI"].includes(e.target.tagName)
+        ) {
+          speak(e.target.innerText);
+        }
+      });
+    </script>
+  </body>
+</html>
